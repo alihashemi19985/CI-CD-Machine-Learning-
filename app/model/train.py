@@ -9,7 +9,11 @@ from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, recall_s
 import pickle
 
 
-df = pd.read_csv('/home/ali/Desktop/ML-CICD/smart_web/Smart_Web_2/app/model/titanic.csv')
+
+df = pd.read_csv('smart_web/Smart_Web_2/app/model/titanic.csv')
+
+
+
 df = df[['Pclass','Sex','Age','Embarked','Survived']]
 df.Sex.replace(['male', 'female'], [0, 1], inplace=True)
 df.Embarked.replace(['S', 'C', 'Q'], [0, 1, 2], inplace=True)
