@@ -34,5 +34,5 @@ pred = lr_model.predict(x_test)
 
 
 
-with open("/home/ali/Desktop/ML-CICD/smart_web/Smart_Web_2/app/model/model.pkl", "wb") as file:
+with open("model.pkl", "wb") as file:
     pickle.dump(lr_model, file)
