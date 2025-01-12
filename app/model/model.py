@@ -1,7 +1,12 @@
 import pickle
+import os
+
+script_dir = os.path.dirname(os.path.abspath(__file__))  # مسیر اسکریپت
+file_path = os.path.join(script_dir, 'model.pkl')
+
 
 def load_model():
-    model = pickle.load(open('model.pkl', 'rb'))
+    model = pickle.load(open(file_path, 'rb'))
     return model
 
 def prediction_model(data):
