@@ -33,7 +33,7 @@ jobs:
             - name: Train the model (Online Training)
               run: python app/model/train.py
 
-     deploy:
+    deploy:
         runs-on: ubuntu-latest
         needs: build-and-test
         steps:
