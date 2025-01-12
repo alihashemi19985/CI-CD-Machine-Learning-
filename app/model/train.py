@@ -10,7 +10,7 @@ import pickle
 
 
 
-df = pd.read_csv('smart_web/Smart_Web_2/app/model/titanic.csv')
+df = pd.read_csv('titanic.csv')
 
 
 
@@ -26,6 +26,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 lr_model = LogisticRegression( max_iter=1000, C=1, solver='lbfgs')
 lr_model.fit(x_train, y_train)
 pred = lr_model.predict(x_test)
+
 
 
 with open("/home/ali/Desktop/ML-CICD/smart_web/Smart_Web_2/app/model/model.pkl", "wb") as file:
