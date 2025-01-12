@@ -1,0 +1,47 @@
+{%extends "base.html" %} {% block title %} Result {% endblock %} {% block
+content %}
+<section
+	id="login"
+	class="hero result section">
+	<!-- Section Title -->
+	<div class="login-bg">
+		<img
+			src="{{url_for('static',filename='img/input.jpg')}}"
+			alt="" />
+	</div>
+	<div
+		class="container"
+		data-aos="fade-up">
+		<div class="row d-flex justify-content-center align-items-start">
+			<div class="col-lg-6">
+				<h4 class="section-title text-center">Predicted result</h4>
+				<p class="text-center">
+					The predicted result is:
+					<!-- put prediction result here with jinja -->
+					<strong
+						>{% if predicted_class == 0 %} Not Survived {% elif predicted_class
+						== 1 %} Survived {% else %} Unknown {% endif %}</strong
+					>
+				</p>
+				<!-- add explanation with jinja-->
+				<p class="text-center">
+					{% if predicated_class == 1%} According to our data and prediction,
+					you would have survived the Titanic disaster. {% elif predicted_class
+					== 0 %} According to our data and prediction, you wouldn't have
+					survived the Titanic disaster. {% else %} We encountered an error
+					while predicting your survival status. Please try again later. {%
+					endif %}
+				</p>
+				<div class="text-center">
+					<a
+						href="{{url_for('main.input_data')}}"
+						class="btn-get-started"
+						>Predict Again</a
+					>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /Starter Section Section -->
+{%endblock%}

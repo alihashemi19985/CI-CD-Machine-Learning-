@@ -1,0 +1,62 @@
+{%extends "base.html" %} {% block title %} Sign In {% endblock %} {% block
+	content %}
+<section
+	id="login"
+	class="hero login section">
+	<!-- Section Title -->
+	<div class="login-bg">
+		<img
+			src="{{url_for('static',filename='img/login_bg.jpg')}}"
+			alt="" />
+	</div>
+	<div
+		class="container "
+		data-aos="fade-up">
+		<div class="row d-flex flex-column align-items-end p-3">
+			<div class="col-lg-6 section-title text-center">
+				<h2>Sign In</h2>
+			</div>
+			{% with  messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+			<div>
+				{% for category, message in messages %}
+					<div class="alert alert-{{category}} alert-dismissiable fade show" role="alert">
+						{{message}}
+					</div>
+				{% endfor %}
+			</div>
+			{% endif %}
+			{% endwith %}
+
+			<div class="col-lg-6">
+				<form action="{{url_for('main.login')}}" method="post" novalidate>
+					{{form.csrf_token}}
+					<div class="form-group">
+						{{form.username.label}}
+						{{form.username(class='form-control')}}
+						{% for error in form.username.errors%}
+							<span style="color: red;">[{{ error }}]</span><br>
+						 {%endfor%}
+					</div>
+					<div class="form-group">
+						{{form.password.label}}
+						{{form.password(class='form-control')}}
+						{% for error in form.password.errors%}
+							<span style="color: red;">[{{ error }}]</span><br>
+						 {%endfor%}
+					</div>
+			
+					<div class="d-flex justify-content-center p-3">
+                        {{form.login(class="submit-btn")}}
+                    </div>
+                    <div class="text-center">
+                        <p>Don't have an account? <a href="{{url_for('main.register')}}">Sign up here</a></p>
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+</section>
+<!-- /Starter Section Section -->
+{%endblock%}

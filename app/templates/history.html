@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %} History {% endblock %}
+{% block content %}
+<section id="login" class="hero result section">
+    <!-- Section Title -->
+    <div class="login-bg">
+        <img src="{{ url_for('static', filename='img/input.jpg') }}" alt="" />
+    </div>
+    <div class="container" data-aos="fade-up">
+        <div class="row d-flex justify-content-center align-items-start">
+            <div class="col-lg-6">
+                <h4 class="section-title text-center">Prediction History</h4>
+                <p class="text-center">Your prediction history is:</p>
+                
+                <!-- Table for Prediction Results -->
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>Prediction #</th>
+                            <th>Sex</th>
+                            <th>Age</th>
+                            <th>Ticket class</th>
+                            <th>Port of Embarkation</th>
+                            <th>Prediction</th>							
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for prediction in predictions %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ prediction.sex }}</td>
+                            <td>{{ prediction.age }}</td>
+                            <td>{{ prediction.Pclass }}</td>
+                            <td>{{ prediction.embarked }}</td>
+                            <td>{{ prediction.prediction_result }}</td>
+
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+                <!-- Explanation -->
+                <p class="text-center mt-3">
+                    Here is a summary of your recent predictions based on the input data provided.
+                </p>
+                
+                <!-- Predict More Button -->
+                <div class="text-center">
+                    <a href="{{ url_for('main.input_data') }}" class="btn-get-started">Predict more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

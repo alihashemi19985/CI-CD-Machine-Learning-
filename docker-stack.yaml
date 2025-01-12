@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  web:
+    image: smart_web_2  # The name of the built Docker image for your Flask app
+    build:
+      context: .
+    ports:
+      - "8001:8000"
+    environment:
+      FLASK_ENV: production  # Set to production for Swarm deployment
+      DATABASE_URL: postgres://myuser:mypassword@db:5432/mydatabase
+    deploy:
+      replicas: 3  # Number of instances for scaling
+      restart_policy:
+        condition: on-failure
+      update_config:
+        parallelism: 1
+        delay: 10s
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: postgres:13  # PostgreSQL version
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    deploy:
+      replicas: 1  # Typically set to 1 for single-instance databases
+      restart_policy:
+        condition: on-failure
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: overlay  # Overlay network suitable for Swarm
+
+volumes:
+  db-data:

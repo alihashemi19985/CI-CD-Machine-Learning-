@@ -1,0 +1,87 @@
+{%extends "base.html" %} {% block title %} Input {% endblock %} {% block
+	content %}
+<section
+	id="login"
+	class="hero login section">
+	<!-- Section Title -->
+	<div class="login-bg">
+		<img
+			src="{{url_for('static',filename='img/input.jpg')}}"
+			alt="" />
+	</div>
+	<div
+		class="container"
+		data-aos="fade-up">
+		<div class="row d-flex justify-content-center align-items-start">
+			<h2 class="section-title">Enter your Data</h2>
+
+			<div class="col-lg-3">
+				<form method="POST">
+					<div class="mb-3">
+						<div class="mb-3">
+							<label for="pclass" class="form-label">Sex</label>
+							<select class="form-control" id="pclass" name="sex">
+								<option class="text-muted" disabled selected>choose sex</option> <!-- Placeholder -->
+								<option value='male'>Male</option>
+								<option value='female'>Female</option>
+							</select>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label
+							for="feature2"
+							class="form-label"
+							>Age</label
+						>
+						<input
+							type="text"
+							class="form-control"
+							id="age"
+							name="age"
+							placeholder="Enter age" />
+                    </div>
+                </div>
+                <div class="col-lg-3">
+
+                    <div class="mb-3">
+						<label for="pclass" class="form-label">Ticket class</label>
+						<select class="form-control" id="pclass" name="pclass">
+							<option class="text-muted" disabled selected>Ticket class</option> <!-- Placeholder -->
+							<option value=1>First Class</option>
+							<option value=2>Second Class</option>
+							<option value=3>Third Class</option>
+						</select>
+					</div>
+					
+					
+					<div class="mb-3">
+						<label for="embarked" class="form-label">Port of Embarkation</label>
+						<select class="form-control" id="embarked" name="embarked">
+							<option value="" class="text-muted" disabled selected>Port of Embarkation</option> <!-- Placeholder -->
+							<option value="C">Cherbourg</option>
+							<option value="Q">Queenstown</option>
+							<option value="S">Southampton</option>
+						</select>
+					</div>
+					
+                </div>
+					<div class="d-flex justify-content-center p-3">
+						<button
+							type="submit"
+							class="submit-btn">
+							Predict
+						</button>
+					</div>
+					<div class="text-center">
+						<p>
+							Do you want to see previous predictions?
+							<a href="{{url_for('main.history')}}">See your history</a>
+						</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /Starter Section Section -->
+{%endblock%}

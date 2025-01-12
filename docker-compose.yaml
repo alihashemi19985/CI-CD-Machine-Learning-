@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .  # Path to your Dockerfile
+    ports:
+      - "8000:8000"  # Map port 8000 on the host to port 8000 in the container
+    environment:
+      FLASK_ENV: development  # Set to production for deployment
+      DATABASE_URL: postgres://myuser:mypassword@db:5432/mydatabase
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: postgres:13  # Use any version you prefer
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    volumes:
+      - db-data:/var/lib/postgresql/data  # Persist database data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:

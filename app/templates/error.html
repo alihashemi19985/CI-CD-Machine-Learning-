@@ -1,0 +1,86 @@
+{%extends "base.html" %} {% block title %} Input {% endblock %} {% block content
+	%}
+	<section>
+		<div
+			class="container"
+			data-aos="fade-up">
+			{% if error == 400 %}
+			<div class="row d-flex justify-content-center align-items-center mt-5 p-4">
+				<div class="col-lg-5">
+					<div>
+						<img
+							class="error"
+							src="{{ url_for('static', filename='img/errors/400.jpg') }}"
+							alt="400 Error Image" />
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<h1>Bad Request (400)</h1>
+					<p>
+						It looks like some required data is missing or invalid. Please go back
+						and try again.
+					</p>
+					<a href="{{ url_for('main.input_data') }}">Return to Input Page</a>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+		{% if error == 401 %}
+			<div class="row d-flex justify-content-center align-items-center mt-5 p-4">
+				<div class="col-lg-5">
+					<div>
+						<img
+							class="error"
+							src="{{ url_for('static', filename='img/errors/401.jpg') }}"
+							alt="401 Error Image" />
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<h1>Unauthorized Error (401)</h1>
+					<p>
+						You need to be logged in to access this page
+					</p>
+					<a href="{{ url_for('main.login') }}">Login</a>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+		{% if error == 404 %}
+			<div class="row d-flex justify-content-center align-items-center mt-5 p-4">
+				<div class="col-lg-5">
+					<div>
+						<img
+							class="error"
+							src="{{ url_for('static', filename='img/errors/404-2.png') }}"
+							alt="404 Error Image" />
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<h1>404 - Page Not Found</h1>
+					<p>Sorry, the page you're looking for doesn't exist.</p>
+					<a href="{{ url_for('main.home') }}">Return to Home</a>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+		{% if error == 500 %}
+			<div class="row d-flex justify-content-center align-items-center mt-5 p-4">
+				<div class="col-lg-5">
+					<div>
+						<img
+							class="error"
+							src="{{ url_for('static', filename='img/errors/500-2.png') }}"
+							alt="500 Error Image" />
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<h1>500 - Internal Server Error</h1>
+        			<p>Oops! Something went wrong on our end. Please try again later.</p>
+					<a href="{{ url_for('main.home') }}">Return to Home</a>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+	</section>
+	{%endblock%}
+	

@@ -1,0 +1,326 @@
+{%extends "base.html" %} {% block title %} SurvivalReveal {% endblock %} {% block
+content %}
+<!-- Hero Section -->
+<section
+	id="hero"
+	class="hero section">
+	<div class="hero-bg">
+		<img
+			src="{{url_for('static',filename='img/hero-bg-light.webp')}}"
+			alt="" />
+	</div>
+	<div class="container text-center">
+		<div class="d-flex flex-column justify-content-center align-items-center">
+			<h1 data-aos="fade-up">Welcome to <span>SurvivalReveal</span></h1>
+			<p
+				data-aos="fade-up"
+				data-aos-delay="100">
+				If you were on the Titanic, would you be saved? <br />We will tell
+				you.<br />
+			</p>
+			<div
+				class="d-flex"
+				data-aos="fade-up"
+				data-aos-delay="200">
+				<a
+					href="#about"
+					class="btn-get-started"
+					>Go Ahead</a
+				>
+			</div>
+			<img
+				src="{{url_for('static',filename='img/titanic.png')}}"
+				class="img-fluid hero-img"
+				alt=""
+				data-aos="zoom-out"
+				data-aos-delay="300" />
+		</div>
+	</div>
+</section>
+<!-- /Hero Section -->
+<!-- About Section -->
+<section
+	id="about"
+	class="about section">
+	<div class="container">
+		<div class="row gy-4">
+			<div
+				class="col-lg-6 content"
+				data-aos="fade-up"
+				data-aos-delay="100">
+				<p class="who-we-are">What is this website about?</p>
+				<p
+					class="fst-italic"
+					style="text-align: justify">
+					Welcome to the SurvivalReveal website! This platform uses machine
+					learning to predict the likelihood of survival for passengers aboard
+					the infamous Titanic. By analyzing historical data from the Titanic's
+					passenger manifest, including variables such as age, gender, class,
+					and more, we can provide predictions based on patterns observed in the
+					dataset. Whether you're a data enthusiast or just curious about the
+					science behind predictive modeling, this website offers a practical
+					example of how machine learning algorithms, like logistic regression,
+					can be applied to historical data for insightful results. Explore the
+					model and see how factors influenced survival chances aboard one of
+					history’s most famous ships!
+				</p>
+				<br />
+				<a
+					href="{{url_for('main.input_data')}}"
+					class="read-more"
+					><span>Try it!</span><i class="bi bi-arrow-right"></i
+				></a>
+			</div>
+
+			<div
+				class="col-lg-6 about-images"
+				data-aos="fade-up"
+				data-aos-delay="200">
+				<div class="row gy-4">
+					<div class="col-lg-12">
+						<img
+							src="{{url_for('static',filename='img/about1.jpg')}}"
+							class="img-fluid"
+							alt="" />
+					</div>
+					<div class="col-lg-12">
+						<img
+							src="{{url_for('static',filename='img/about2.jpg')}}"
+							class="img-fluid"
+							alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /About Section -->
+<!-- Features Section -->
+<section
+	id="features"
+	class="features section">
+	<!-- Section Title -->
+	<div
+		class="container section-title"
+		data-aos="fade-up">
+		<h2>The Titanic: A Legend Born from Tragedy</h2>
+		<p>
+			Do you know the legendary story of the Titanic, the magnificent
+			'unsinkable' ship that tragically met its fate on its maiden voyage?
+		</p>
+	</div>
+	<!-- End Section Title -->
+
+	<div class="container mb-2">
+		<div class="row justify-content-between">
+			<div class="col-lg-6 d-flex align-items-center">
+				<ul
+					class="nav nav-tabs"
+					data-aos="fade-up"
+					data-aos-delay="100">
+					<li class="nav-item">
+						<a
+							class="nav-link active show"
+							data-bs-toggle="tab"
+							data-bs-target="#features-tab-1">
+							<i class="fa-solid fa-ship"></i>
+
+							<div>
+								<h4 class="d-none d-lg-block">A Brief Overview</h4>
+								<p style="text-align: justify">
+									The Titanic was a British passenger liner, famously known for
+									sinking during its maiden voyage. Built by the White Star
+									Line, it was one of the largest and most luxurious ships ever
+									constructed at the time. The Titanic was advertised as
+									"unsinkable" due to its advanced safety features, including a
+									double hull and 16 watertight compartments. On April 10, 1912,
+									the Titanic set sail from Southampton, England, to New York
+									City with over 2,200 passengers and crew on board. Among the
+									passengers were some of the wealthiest people of the time, as
+									well as immigrants seeking a new life in America.
+								</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="col-lg-6">
+				<div
+					class="tab-content"
+					data-aos="fade-up"
+					data-aos-delay="200">
+					<div
+						class="tab-pane fade active show"
+						id="features-tab-1">
+						<img
+							src="{{url_for('static',filename='img/titanic2.webp')}}"
+							alt=""
+							class="img-fluid" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- part 2 -->
+	<div class="container mb-2">
+		<div class="row justify-content-between">
+			<div class="col-lg-6">
+				<div
+					class="tab-content"
+					data-aos="fade-up"
+					data-aos-delay="200">
+					<div
+						class="tab-pane fade active show"
+						id="features-tab-1">
+						<img
+							src="{{url_for('static',filename='img/Titanic_lifeboat.jpg')}}"
+							alt=""
+							class="img-fluid" />
+					</div>
+					<!-- End Tab Content Item -->
+				</div>
+			</div>
+			<div class="col-lg-6 d-flex align-items-center">
+				<ul
+					class="nav nav-tabs"
+					data-aos="fade-up"
+					data-aos-delay="100">
+					<li class="nav-item">
+						<a
+							class="nav-link active show"
+							data-bs-toggle="tab"
+							data-bs-target="#features-tab-1">
+							<i class="custom-icon icon-iceberg"></i>
+							<div>
+								<p style="text-align: justify">
+									On the night of April 14, 1912, the Titanic struck an iceberg
+									in the North Atlantic Ocean. The iceberg scraped along the
+									ship's starboard side, causing five of its 16 watertight
+									compartments to flood. The ship was not designed to stay
+									afloat with more than four flooded compartments, and as a
+									result, it began to sink. The Titanic had lifeboats for only
+									about half of the people on board, a decision based on
+									outdated maritime regulations. This led to a chaotic
+									evacuation, with many lifeboats launched partially empty. Due
+									to the freezing cold waters and lack of sufficient lifeboats,
+									over 1,500 people died, making it one of the deadliest
+									maritime disasters in history. Most of the deaths were caused
+									by hypothermia in the frigid waters, rather than drowning.
+								</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- part 3 -->
+	<div class="container mb-2">
+		<div class="row justify-content-between">
+			<div class="col-lg-6 d-flex align-items-center">
+				<ul
+					class="nav nav-tabs"
+					data-aos="fade-up"
+					data-aos-delay="100">
+					<li class="nav-item">
+						<a
+							class="nav-link active show"
+							data-bs-toggle="tab"
+							data-bs-target="#features-tab-1">
+							<i class="custom-icon icon-sank"></i>
+							<div>
+								<p style="text-align: justify">
+									The sinking of the Titanic became a symbol of human error,
+									overconfidence in technology, and class disparity. It led to
+									widespread public outrage and resulted in significant changes
+									to maritime safety regulations, including the International
+									Convention for the Safety of Life at Sea (SOLAS) in 1914,
+									which mandated sufficient lifeboats and improved safety
+									measures for ships. The wreck of the Titanic was discovered in
+									1985 on the ocean floor, about 2.5 miles deep, providing
+									further insight into the tragedy and reigniting public
+									fascination with the ship's story.
+								</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="col-lg-6">
+				<div
+					class="tab-content"
+					data-aos="fade-up"
+					data-aos-delay="200">
+					<div
+						class="tab-pane fade active show"
+						id="features-tab-1">
+						<img
+							src="{{url_for('static',filename='img/titanic3.webp')}}"
+							alt=""
+							class="img-fluid" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- /Features Section -->
+<section
+	id="contact"
+	class="contact section">
+	<!-- Section Title -->
+	<div
+		class="container section-title"
+		data-aos="fade-up">
+		<h2>Contact</h2>
+		<p>Contact us through the following ways</p>
+	</div>
+	<!-- End Section Title -->
+
+	<div
+		class="container"
+		data-aos="fade-up"
+		data-aos-delay="100">
+		<div class="row gy-4">
+			<div class="col-lg-6">
+				<div
+					class="info-item d-flex flex-column justify-content-center align-items-center"
+					data-aos="fade-up"
+					data-aos-delay="200">
+					<i class="bi bi-geo-alt"></i>
+					<h3>Address</h3>
+					<p>A108 Adam Street, New York, NY 535022</p>
+				</div>
+			</div>
+			<!-- End Info Item -->
+
+			<div class="col-lg-3 col-md-6">
+				<div
+					class="info-item d-flex flex-column justify-content-center align-items-center"
+					data-aos="fade-up"
+					data-aos-delay="300">
+					<i class="bi bi-telephone"></i>
+					<h3>Call Us</h3>
+					<p>info@filoger.com</p>
+				</div>
+			</div>
+			<!-- End Info Item -->
+
+			<div class="col-lg-3 col-md-6">
+				<div
+					class="info-item d-flex flex-column justify-content-center align-items-center"
+					data-aos="fade-up"
+					data-aos-delay="400">
+					<i class="bi bi-envelope"></i>
+					<h3>Email Us</h3>
+					<p>info@filoger.com</p>
+				</div>
+			</div>
+			<!-- End Info Item -->
+		</div>
+	</div>
+</section>
+<!-- /Contact Section -->
+{% endblock %}

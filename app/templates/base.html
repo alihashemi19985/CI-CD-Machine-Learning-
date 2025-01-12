@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			content="width=device-width, initial-scale=1.0"
+			name="viewport" />
+		<title>{% block title %} {% endblock %}</title>
+		<meta
+			name="description"
+			content="" />
+		<meta
+			name="keywords"
+			content="" />
+		<link
+			href="{{url_for('static',filename='img/apple-touch-icon.png')}}"
+			rel="apple-touch-icon" />
+		<link
+			href="{{url_for('static',filename='img/favicon.png')}}"
+			rel="apple-touch-icon" />
+
+		<!-- Fonts -->
+		<link
+			href="https://fonts.googleapis.com"
+			rel="preconnect" />
+		<link
+			href="https://fonts.gstatic.com"
+			rel="preconnect"
+			crossorigin />
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+			rel="stylesheet" />
+
+		<!-- Vendor CSS Files -->
+		<link
+			href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}"
+			rel="stylesheet" />
+
+		<link
+			href="{{url_for('static',filename='vendor/bootstrap-icons/bootstrap-icons.css')}}"
+			rel="stylesheet" />
+
+		<link
+			href="{{url_for('static',filename='vendor/aos/aos.css')}}"
+			rel="stylesheet" />
+
+		<link
+			href="{{url_for('static', filename='vendor/glightbox/css/glightbox.min.css')}}"
+			rel="stylesheet" />
+
+		<link
+			href="{{url_for('static', filename='vendor/swiper/swiper-bundle.min.css')}}"
+			rel="stylesheet" />
+
+		<!-- Main CSS File -->
+
+		<link
+			href="{{ url_for('static', filename='css/main.css') }}"
+			rel="stylesheet" />
+	</head>
+
+	<body class="index-page">
+		<header
+			id="header"
+			class="header d-flex align-items-center fixed-top">
+			<div
+				class="container-fluid container-xl position-relative d-flex align-items-center">
+				<a
+					href="#"
+					class="logo d-flex align-items-center me-auto">
+					<img src="{{url_for('static', filename='img/logo.png')}}">
+					<h1 class="sitename">SurvivalReveal</h1>
+				</a>
+
+				<nav
+					id="navmenu"
+					class="navmenu">
+					<ul>
+						<li>
+							<a href="{{ url_for('main.home') }}" 
+							   class="{{ 'active' if request.endpoint == 'main.home' else '' }}">
+								Home
+							</a>
+						</li>
+						<li>
+							<a href="{{ url_for('main.home') }}#about" 
+							   class="{{ 'active' if request.endpoint == 'main.about' else '' }}">
+								About
+							</a>
+						</li>
+						<li>
+							<a href="{{ url_for('main.home') }}#features" 
+							   class="{{ 'active' if request.endpoint == 'main.features' else '' }}">
+								History
+							</a>
+						</li>
+						<li>
+							<a href="{{ url_for('main.home') }}#contact" 
+							   class="{{ 'active' if request.endpoint == 'main.contact' else '' }}">
+								Contact
+							</a>
+						</li>
+						<li>
+							<a href="{{ url_for('main.input_data') }}" 
+							   class="{{ 'active' if request.endpoint == 'main.input_data' else '' }}">
+								Input Form
+							</a>
+						</li>
+					</ul>
+					<i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+				</nav>
+
+				<!-- {% if session %}
+							<pre>{{ session }}</pre>
+							{% endif %} {% if 'username' in session %} -->
+							<!-- User is logged in, show the logout button -->
+					<a
+						class="btn-getstarted"
+						href="{{ url_for('main.logout') }}"
+						>Logout</a
+					>
+					<a
+						class="btn-getstarted"
+						href="{{ url_for('main.profile') }}"
+						>Profile</a
+					>
+				{% else %}
+					<!-- User is not logged in, show the login and register buttons -->
+					<a
+						class="btn-getstarted"
+						href="{{url_for('main.login')}}"
+						>Log In</a
+					>
+					<a
+						class="btn-getstarted"
+						href="{{url_for('main.register')}}"
+						>Register</a
+					>
+				{% endif %}
+			</div>
+		</header>
+		<main>{% block content %}{% endblock %}</main>
+		<footer
+			id="footer"
+			class="footer position-relative light-background">
+
+			<div class="container copyright text-center mt-4">
+				<p>
+					© <span>Copyright</span>
+					<strong class="px-1 sitename">SurvivalReveal</strong
+					><span>All Rights Reserved</span>
+				</p>
+				<div class="credits">
+					<!-- All the links in the footer should remain intact. -->
+					<!-- You can delete the links only if you've purchased the pro version. -->
+					<!-- Licensing information: https://bootstrapmade.com/license/ -->
+					<!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+					Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Scroll Top -->
+		<a
+			href="#"
+			id="scroll-top"
+			class="scroll-top d-flex align-items-center justify-content-center"
+			><i class="bi bi-arrow-up-short"></i
+		></a>
+
+		<!-- Preloader -->
+		<div id="preloader"></div>
+
+		<!-- Vendor JS Files -->
+		<script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+		<script src="{{url_for('static',filename='vendor/php-email-form/validate.js')}}"></script>
+
+		<script src="{{url_for('static',filename='vendor/aos/aos.js')}}"></script>
+		<script src="{{url_for('static',filename='vendor/glightbox/js/glightbox.min.js')}}"></script>
+
+		<script src="{{url_for('static',filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
+
+		<!-- Main JS File -->
+		<script src="{{ url_for('static', filename='js/main.js')}}"></script>
+	</body>
+</html>

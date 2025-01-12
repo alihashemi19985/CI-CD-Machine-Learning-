@@ -1,0 +1,10 @@
+mlops12_env/
+.env
+instance/site.db
+mlops_env/
+instance/
+__pycache__/
+app/__pycache__/
+app/model/__pycache__/
+mlops.mp4
+

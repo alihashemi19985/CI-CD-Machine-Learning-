@@ -1,0 +1,43 @@
+{%extends "base.html" %} {% block title %} Profile {% endblock %} 
+{% block content %}
+<section id="login" class="hero result section">
+    <!-- Section Title -->
+    <div class="login-bg">
+        <img src="{{ url_for('static', filename='img/input.jpg') }}" alt="" />
+    </div>
+    <div class="container" data-aos="fade-up">
+        <div class="row d-flex justify-content-center align-items-start">
+            <div class="col-lg-6">
+                <h4 class="section-title text-center">Profile</h4>
+                
+                <!-- Table for Prediction Results -->
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>							
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>{{ user_info.username }}</td>
+                            <td>{{ user_info.email }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!-- Explanation -->
+                <p class="text-center mt-3">
+                   see your history here
+                </p>
+                
+                <!-- Predict More Button -->
+                <div class="text-center">
+                    <a href="{{ url_for('main.history') }}" class="btn-get-started">history</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
