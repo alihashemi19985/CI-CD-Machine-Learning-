@@ -36,3 +36,6 @@ pred = lr_model.predict(x_test)
 
 with open("model.pkl", "wb") as file:
     pickle.dump(lr_model, file)
+
+
+
