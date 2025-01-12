@@ -33,4 +33,21 @@ jobs:
             - name: Train the model (Online Training)
               run: python app/model/train.py
 
+     deploy:
+        runs-on: ubuntu-latest
+        needs: build-and-test
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Deploy to Render
+              env:
+                  RENDER_API_KEY: ${{ secrets.rnd_vV9l5Nh5vMA17FS4cec2jyjHDXDY}}
+              run: |
+                curl -X POST https://api.render.com/v1/services/srv-cu1o75hu0jms738kl5a0/deploys \
+                -H "Authorization: Bearer $rnd_vV9l5Nh5vMA17FS4cec2jyjHDXDY" \
+                -H "Content-Type: application/json" \
+                -d '{
+                    "branch": "main"
+                }'      
             
