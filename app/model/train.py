@@ -3,6 +3,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+import os
 
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, recall_score
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, recall_score
@@ -10,7 +11,11 @@ import pickle
 
 
 
-df = pd.read_csv('titanic.csv')
+script_dir = os.path.dirname(os.path.abspath(__file__))  # مسیر اسکریپت
+file_path = os.path.join(script_dir, 'titanic.csv')
+df = pd.read_csv(file_path)
+
+#df = pd.read_csv('titanic.csv')
 
 
 
